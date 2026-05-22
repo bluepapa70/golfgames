@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- 골프 에티켓 & 매너 사전 페이지 -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>골프 에티켓 사전 — 잉거리의 골프 게임</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="golfgame.css">
+  <style>
+    .terms-container {
+      max-width: 760px;
+      margin: 28px auto 48px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .terms-section {
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .terms-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .terms-section-header .emoji {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .terms-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .terms-table td {
+      padding: 10px 18px;
+      font-size: 0.875rem;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .terms-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .terms-table tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .terms-table td:first-child {
+      font-weight: 700;
+      white-space: nowrap;
+      width: 38%;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 20px 20px 0;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .back-link:hover {
+      background: rgba(255,255,255,0.28);
+    }
+
+    .terms-page-header {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 16px 20px 20px;
+    }
+
+    .terms-page-header .header-inner {
+      max-width: 760px;
+    }
+
+    .terms-page-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .terms-page-title h1 {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .terms-page-title .page-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      .terms-table td:first-child {
+        width: 42%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="terms-page-header">
+    <div class="header-inner">
+      <a href="index.html" class="back-link">← 게임으로</a>
+      <div class="terms-page-title">
+        <div class="page-icon">🤝</div>
+        <div>
+          <h1>골프 에티켓 사전</h1>
+          <p class="site-subtitle">신사의 스포츠를 위한 필드 매너 가이드</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="terms-container">
+
+      <!-- 티잉 그라운드 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#1a5c2a;">
+          <span class="emoji">🏌️</span>
+          <span>티잉 그라운드</span>
+        </div>
+        <table class="terms-table">
+          <tbody>
+            <tr><td>티샷 순서</td><td>핸디캡 높은 순 또는 동반자 합의 순서로 진행</td></tr>
+            <tr><td>조용히 대기</td><td>동반자 샷 준비·스윙 중 대화·전화 금지</td></tr>
+            <tr><td>티잉 구역</td><td>샷하는 동안 본인만 티잉 구역에 서 있기</td></tr>
+            <tr><td>연습 스윙</td><td>사람 없는 방향으로만, 지면을 파지 않게</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 페어웨이 & 코스 관리 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#16a085;">
+          <span class="emoji">🌿</span>
+          <span>페어웨이 & 코스 관리</span>
+        </div>
+        <table class="terms-table">
+          <tbody>
+            <tr><td>디봇 복구</td><td>샷 후 파인 잔디(디봇)는 반드시 덮어두기</td></tr>
+            <tr><td>카트 규칙</td><td>카트 도로 및 지정 구역 외 진입 금지</td></tr>
+            <tr><td>깃발 처리</td><td>어프로치 전 깃발 위치 확인 및 그린 위 조심히 내려놓기</td></tr>
+            <tr><td>러프 관리</td><td>불필요하게 러프·잔디를 밟거나 훼손하지 않기</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 그린 매너 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#2980b9;">
+          <span class="emoji">⛳</span>
+          <span>그린 매너</span>
+        </div>
+        <table class="terms-table">
+          <tbody>
+            <tr><td>퍼팅 라인</td><td>동반자 퍼팅 라인 절대 밟지 않기</td></tr>
+            <tr><td>그림자 금지</td><td>어드레스 중 퍼팅 라인 위로 그림자 만들지 않기</td></tr>
+            <tr><td>홀 주변</td><td>홀 50cm 이내 잔디 밟지 않기</td></tr>
+            <tr><td>볼 마크 수리</td><td>그린 위 볼 자국(피치 마크) 즉시 수리</td></tr>
+            <tr><td>스코어 기록</td><td>그린에서 이동 후 다음 홀 카트에서 기록</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 플레이 속도 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#d35400;">
+          <span class="emoji">⏱️</span>
+          <span>플레이 속도</span>
+        </div>
+        <table class="terms-table">
+          <tbody>
+            <tr><td>도착 시간</td><td>티오프 최소 30~50분 전 골프장 도착</td></tr>
+            <tr><td>레디 골프</td><td>준비된 사람이 먼저 치기 — 순서보다 속도 우선</td></tr>
+            <tr><td>분실구 탐색</td><td>3분 이내 탐색, 못 찾으면 잠정구 또는 스트로크 앤 디스턴스</td></tr>
+            <tr><td>클럽 준비</td><td>카트에서 내릴 때 여러 클럽 미리 챙기기</td></tr>
+            <tr><td>앞 조 간격</td><td>앞 조와 한 홀 이상 간격 벌어지면 속도 높이기</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 동반자 배려 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#8e44ad;">
+          <span class="emoji">🤝</span>
+          <span>동반자 배려</span>
+        </div>
+        <table class="terms-table">
+          <tbody>
+            <tr><td>박수·칭찬</td><td>좋은 샷에는 격려와 박수 아끼지 않기</td></tr>
+            <tr><td>핸드폰 매너</td><td>라운드 중 통화는 최소화, 진동 모드 유지</td></tr>
+            <tr><td>클럽 위치</td><td>그린 주변 클럽은 다음 홀 진행 방향 쪽에 두기</td></tr>
+            <tr><td>컨시드(오케이)</td><td>확실히 들어갈 퍼트는 오케이 주기 — 시간도 배려</td></tr>
+            <tr><td>스코어 공유</td><td>동반자 스코어 기억해 주기</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 복장 & 준비 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#c0392b;">
+          <span class="emoji">👔</span>
+          <span>복장 & 준비</span>
+        </div>
+        <table class="terms-table">
+          <tbody>
+            <tr><td>드레스코드</td><td>카라 있는 상의, 골프 전용 하의 — 대부분 골프장 필수</td></tr>
+            <tr><td>골프화</td><td>스파이크리스 또는 소프트 스파이크 권장</td></tr>
+            <tr><td>클럽 수</td><td>14개 이하 규정 준수</td></tr>
+            <tr><td>라운드 전 준비</td><td>볼·티·마커·장갑·선크림 미리 챙기기</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 안전 에티켓 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#2c3e50;">
+          <span class="emoji">⚠️</span>
+          <span>안전 에티켓</span>
+        </div>
+        <table class="terms-table">
+          <tbody>
+            <tr><td>포어!(Fore!)</td><td>공이 타인 방향으로 날아갈 때 즉시 크게 외치기</td></tr>
+            <tr><td>샷 전 확인</td><td>앞 팀이 사정거리 밖으로 이동할 때까지 대기</td></tr>
+            <tr><td>카트 탑승</td><td>카트 완전 정지 후 탑승·하차</td></tr>
+            <tr><td>번개 대피</td><td>번개 시 즉시 클럽을 내려놓고 대피소로 이동</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>💡 매너 팁: 게임 룰은 라운드 시작 전 반드시 동반자 전원과 합의하세요.</p>
+    <p>© 2025 GolfGameCard</p>
+  </footer>
+
+</body>
+</html>
