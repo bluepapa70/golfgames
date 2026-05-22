@@ -1,10 +1,176 @@
-/* CSS 3D Flip 효과 핵심 구조 예시 */
+/* 골프 게임 도감 전체 스타일 — Flip 카드 + 반응형 레이아웃 */
+
+/* ── 변수 ── */
+:root {
+  --color-primary: #1a5c2a;
+  --color-primary-dark: #134420;
+  --color-accent: #f5a623;
+  --color-bg: #f4f7f4;
+  --color-card-front: #ffffff;
+  --color-card-back: #1a5c2a;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-text-on-dark: #ffffff;
+  --color-star-filled: #f5a623;
+  --color-star-empty: #ddd;
+  --radius-card: 16px;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --transition-flip: 0.6s ease;
+  --card-min-height: 360px;
+}
+
+/* ── 리셋 & 기본 ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ── 헤더 ── */
+.site-header {
+  background: var(--color-primary);
+  color: var(--color-text-on-dark);
+  padding: 28px 16px;
+  text-align: center;
+}
+
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.site-title {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.site-subtitle {
+  margin-top: 6px;
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  opacity: 0.85;
+}
+
+/* ── 컨트롤 바 ── */
+.controls {
+  max-width: 960px;
+  margin: 24px auto 0;
+  padding: 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 2px solid var(--color-primary);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.sort-group select {
+  padding: 8px 12px;
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.sort-group select:focus {
+  box-shadow: 0 0 0 3px rgba(26, 92, 42, 0.25);
+}
+
+/* ── 카드 그리드 ── */
+.card-grid {
+  max-width: 960px;
+  margin: 24px auto 40px;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 481px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 769px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1201px) {
+  .card-grid {
+    max-width: 1280px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Flip 카드 ── */
 .card-container {
   perspective: 1000px;
+  min-height: var(--card-min-height);
+  cursor: pointer;
+}
+
+.card-container:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-card);
 }
 
 .card-inner {
-  transition: transform 0.6s;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: var(--card-min-height);
+  transition: transform var(--transition-flip);
   transform-style: preserve-3d;
 }
 
@@ -12,12 +178,221 @@
   transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: var(--card-min-height);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
+.card-container:hover .card-front,
+.card-container:hover .card-back {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ── 카드 앞면 ── */
+.card-front {
+  background: var(--color-card-front);
+}
+
+.card-front-emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.card-front-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.card-front-name-en {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.card-divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 8px 0;
+}
+
+.card-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.stars {
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.card-summary {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  margin: 10px 0 8px;
+  flex: 1;
+}
+
+.card-target {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.card-target strong {
+  color: var(--color-primary);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.tag {
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #e8f5ec;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.card-flip-btn {
+  margin-top: auto;
+  padding: 9px 0;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: none;
+  transition: background 0.2s;
+}
+
+.card-container:hover .card-flip-btn {
+  background: var(--color-primary-dark);
+}
+
+/* ── 카드 뒷면 ── */
 .card-back {
+  background: var(--color-card-back);
+  color: var(--color-text-on-dark);
   transform: rotateY(180deg);
+}
+
+.card-back-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-rules {
+  list-style: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.card-rules li {
+  font-size: 0.825rem;
+  line-height: 1.55;
+  padding-left: 20px;
+  position: relative;
+  opacity: 0.92;
+}
+
+.card-rules li::before {
+  content: counter(rule-counter) ".";
+  counter-increment: rule-counter;
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.card-rules {
+  counter-reset: rule-counter;
+}
+
+.card-tip {
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-left: 3px solid var(--color-accent);
+  padding: 8px 10px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 14px;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+.card-tip-label {
+  font-weight: 700;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.card-back-btn {
+  margin-top: auto;
+  padding: 9px 0;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: none;
+  transition: background 0.2s;
+}
+
+.card-container:hover .card-back-btn {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ── 빈 상태 ── */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+/* ── 푸터 ── */
+.site-footer {
+  margin-top: auto;
+  background: var(--color-primary);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 16px;
+  font-size: 0.825rem;
+  line-height: 2;
 }

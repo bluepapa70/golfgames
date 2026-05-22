@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>필드에서 바로 쓰는 골프 게임 도감</title>
+  <link rel="stylesheet" href="golfgame.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">⛳ 필드에서 바로 쓰는 골프 게임 도감</h1>
+      <p class="site-subtitle">동반자와 즐기는 10가지 내기 게임 완벽 가이드</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="필터 및 정렬">
+      <div class="filter-group" role="group" aria-label="난이도 필터">
+        <button class="filter-btn active" data-filter="전체">전체</button>
+        <button class="filter-btn" data-filter="초보추천">초보추천</button>
+        <button class="filter-btn" data-filter="중수추천">중수추천</button>
+        <button class="filter-btn" data-filter="고수용">고수용</button>
+      </div>
+      <div class="sort-group">
+        <label for="sort-select" class="sr-only">정렬 기준</label>
+        <select id="sort-select" aria-label="정렬 기준 선택">
+          <option value="default">기본순</option>
+          <option value="popularity">인기도순</option>
+          <option value="difficulty-asc">난이도 낮은순</option>
+          <option value="difficulty-desc">난이도 높은순</option>
+          <option value="name">가나다순</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card-grid" id="card-grid" aria-label="골프 게임 목록">
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>💡 매너 팁: 게임 룰은 라운드 시작 전 반드시 동반자 전원과 합의하세요.</p>
+    <p>© 2025 GolfGameCard</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
