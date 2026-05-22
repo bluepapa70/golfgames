@@ -34,8 +34,10 @@ function buildCard(game) {
       <div class="card-front">
         <div class="card-header">
           <div class="card-front-emoji">${game.emoji}</div>
-          <div class="card-front-name">${game.name}</div>
-          <div class="card-front-name-en">${game.nameEn}</div>
+          <div class="card-header-text">
+            <div class="card-front-name">${game.name}</div>
+            <div class="card-front-name-en">${game.nameEn}</div>
+          </div>
         </div>
         <div class="card-body">
           <div class="card-stars-row">
