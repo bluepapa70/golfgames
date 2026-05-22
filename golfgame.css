@@ -236,6 +236,7 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
 }
 
 .card-front-emoji {
