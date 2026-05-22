@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(python -m http.server 8723 --directory D:/golfgames)"
+    ]
+  }
+}
