@@ -7,7 +7,7 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 const sortSelect = document.getElementById('sort-select');
 
 let currentFilter = '전체';
-let currentSort = 'default';
+let currentSort = 'popularity';
 
 function makeStars(count, max = 5) {
   return '★'.repeat(count) + '☆'.repeat(max - count);
