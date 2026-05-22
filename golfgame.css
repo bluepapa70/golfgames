@@ -90,20 +90,30 @@ body {
   margin: 28px auto 0;
   padding: 0 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-wrap: nowrap;
+  gap: 10px;
   align-items: center;
   justify-content: space-between;
 }
 
 .filter-group {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-group::-webkit-scrollbar {
+  display: none;
 }
 
 .filter-btn {
   padding: 8px 18px;
+  flex-shrink: 0;
   border: 2px solid var(--color-primary);
   border-radius: 999px;
   background: transparent;
