@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!-- 필드 골프 은어 및 용어 사전 페이지 -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>골프 용어 사전 — 잉거리의 골프 게임</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="golfgame.css">
+  <style>
+    .terms-container {
+      max-width: 760px;
+      margin: 28px auto 48px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .terms-section {
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .terms-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .terms-section-header .emoji {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .terms-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .terms-table th {
+      padding: 9px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: left;
+      background: #f8faf8;
+      color: #555;
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    .terms-table td {
+      padding: 10px 18px;
+      font-size: 0.875rem;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .terms-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .terms-table tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .terms-table td:first-child {
+      font-weight: 700;
+      white-space: nowrap;
+      width: 38%;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 20px 20px 0;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .back-link:hover {
+      background: rgba(255,255,255,0.28);
+    }
+
+    .terms-page-header {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 16px 20px 20px;
+    }
+
+    .terms-page-header .header-inner {
+      max-width: 760px;
+    }
+
+    .terms-page-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .terms-page-title h1 {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .terms-page-title .page-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      .terms-table td:first-child {
+        width: 42%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="terms-page-header">
+    <div class="header-inner">
+      <a href="index.html" class="back-link">← 게임 목록으로</a>
+      <div class="terms-page-title">
+        <div class="page-icon">📖</div>
+        <div>
+          <h1>필드 골프 용어 사전</h1>
+          <p class="site-subtitle">라운드에서 바로 쓰는 한국 골프 은어 모음</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="terms-container">
+
+      <!-- 기본 골프 은어 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#1a5c2a;">
+          <span class="emoji">🏌️</span>
+          <span>기본 골프 은어</span>
+        </div>
+        <table class="terms-table">
+          <thead><tr><th>은어</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>양파</td><td>한 홀 8타</td></tr>
+            <tr><td>보기플레이어</td><td>평균 보기 수준 골퍼</td></tr>
+            <tr><td>싱글</td><td>한 자리 핸디캡 골퍼</td></tr>
+            <tr><td>백돌이 / 백순이</td><td>100타 전후 골퍼</td></tr>
+            <tr><td>깨백</td><td>100타 이하 달성</td></tr>
+            <tr><td>머리 올렸다</td><td>첫 필드 라운드 경험</td></tr>
+            <tr><td>줄버디</td><td>연속 버디</td></tr>
+            <tr><td>줄보기</td><td>연속 보기</td></tr>
+            <tr><td>멀리건</td><td>실수 후 다시 치기</td></tr>
+            <tr><td>기브 / 오케이</td><td>짧은 퍼트 인정</td></tr>
+            <tr><td>컨시드</td><td>퍼트 인정</td></tr>
+            <tr><td>파세이브</td><td>위기에서 파 지킴</td></tr>
+            <tr><td>스크램블</td><td>어려운 상황 복구 플레이</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 샷 관련 은어 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#c0392b;">
+          <span class="emoji">🏹</span>
+          <span>샷 관련 은어</span>
+        </div>
+        <table class="terms-table">
+          <thead><tr><th>은어</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>삑사리</td><td>완전 잘못 맞은 샷</td></tr>
+            <tr><td>쪼루</td><td>공이 짧게 굴러감</td></tr>
+            <tr><td>탑볼</td><td>공 윗부분 맞음</td></tr>
+            <tr><td>뒤땅</td><td>땅 먼저 침</td></tr>
+            <tr><td>생크</td><td>공이 옆으로 급발진</td></tr>
+            <tr><td>훅</td><td>왼쪽으로 크게 휘어짐</td></tr>
+            <tr><td>슬라이스</td><td>오른쪽으로 크게 휘어짐</td></tr>
+            <tr><td>푸시</td><td>우측 밀림</td></tr>
+            <tr><td>당겨침</td><td>좌측으로 감</td></tr>
+            <tr><td>죽었다</td><td>OB/해저드 등으로 공 잃음</td></tr>
+            <tr><td>탄도빨</td><td>운 좋게 굴러감</td></tr>
+            <tr><td>개훅</td><td>심한 훅</td></tr>
+            <tr><td>드로우</td><td>살짝 휘는 이상적 구질</td></tr>
+            <tr><td>페이드</td><td>반대 방향 이상적 구질</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 코스/상황 관련 은어 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#16a085;">
+          <span class="emoji">🌿</span>
+          <span>코스 / 상황 관련 은어</span>
+        </div>
+        <table class="terms-table">
+          <thead><tr><th>은어</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>닭장</td><td>매우 좁은 골프장</td></tr>
+            <tr><td>개미지옥</td><td>벙커 반복</td></tr>
+            <tr><td>감옥</td><td>나무 사이</td></tr>
+            <tr><td>러프 지옥</td><td>깊은 러프</td></tr>
+            <tr><td>알까기</td><td>나무 맞고 살아남음</td></tr>
+            <tr><td>라이 좋다</td><td>공 놓인 상태 좋음</td></tr>
+            <tr><td>떡라이</td><td>아주 좋은 라이</td></tr>
+            <tr><td>디봇</td><td>잔디 패인 자리</td></tr>
+            <tr><td>개털</td><td>잔디 거의 없음</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 퍼팅 관련 은어 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#2980b9;">
+          <span class="emoji">⛳</span>
+          <span>퍼팅 관련 은어</span>
+        </div>
+        <table class="terms-table">
+          <thead><tr><th>은어</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>오케이 거리</td><td>거의 성공 확실 거리</td></tr>
+            <tr><td>뱀라인</td><td>심하게 휘는 퍼팅 라인</td></tr>
+            <tr><td>쓰리퍼트</td><td>3번 퍼팅</td></tr>
+            <tr><td>말아먹었다</td><td>퍼팅 망침</td></tr>
+            <tr><td>쫄았다</td><td>긴장해서 짧게 침</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 내기 골프 은어 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#8e44ad;">
+          <span class="emoji">💰</span>
+          <span>내기 골프 은어</span>
+        </div>
+        <table class="terms-table">
+          <thead><tr><th>은어</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>스킨스</td><td>홀별 상금 내기</td></tr>
+            <tr><td>뽑기</td><td>특정 상황 벌금/상금</td></tr>
+            <tr><td>라스베가스</td><td>팀 숫자 조합 게임</td></tr>
+            <tr><td>Nassau</td><td>전반/후반/전체 내기</td></tr>
+            <tr><td>스트로크</td><td>전체 타수 승부</td></tr>
+            <tr><td>매치플레이</td><td>홀 승부</td></tr>
+            <tr><td>빽돈</td><td>역전 추가 판돈</td></tr>
+            <tr><td>압박</td><td>심리전</td></tr>
+            <tr><td>보험</td><td>미리 돈 걸어둠</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 한국 골프장에서 자주 듣는 말 -->
+      <section class="terms-section">
+        <div class="terms-section-header" style="background:#d35400;">
+          <span class="emoji">🎙️</span>
+          <span>한국 골프장에서 자주 듣는 말</span>
+        </div>
+        <table class="terms-table">
+          <thead><tr><th>표현</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>캐디피 각출</td><td>캐디비 나눔</td></tr>
+            <tr><td>세컨 잘 갔다</td><td>두 번째 샷 좋음</td></tr>
+            <tr><td>온그린</td><td>그린 올림</td></tr>
+            <tr><td>붙였다</td><td>핀 가까이 붙임</td></tr>
+            <tr><td>죽지만 마라</td><td>OB만 피하자</td></tr>
+            <tr><td>살았다</td><td>위험했지만 세이프</td></tr>
+            <tr><td>개버디</td><td>운 좋은 버디</td></tr>
+            <tr><td>뽕샷</td><td>높이 뜨는 샷</td></tr>
+            <tr><td>장타자</td><td>멀리 치는 사람</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>💡 매너 팁: 게임 룰은 라운드 시작 전 반드시 동반자 전원과 합의하세요.</p>
+    <p>© 2025 GolfGameCard</p>
+  </footer>
+
+</body>
+</html>
