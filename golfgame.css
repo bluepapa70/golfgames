@@ -175,7 +175,6 @@ body {
 /* ── Flip 카드 ── */
 .card-container {
   perspective: 1000px;
-  min-height: var(--card-min-height);
   cursor: pointer;
 }
 
@@ -186,10 +185,8 @@ body {
 }
 
 .card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: var(--card-min-height);
+  display: grid;
+  grid-template-areas: "card";
   transition: transform var(--transition-flip);
   transform-style: preserve-3d;
 }
@@ -200,18 +197,14 @@ body {
 
 .card-front,
 .card-back {
+  grid-area: card;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  min-height: var(--card-min-height);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .card-container:hover .card-front,
