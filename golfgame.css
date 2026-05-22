@@ -205,6 +205,14 @@ body {
   transform: rotateY(180deg);
 }
 
+/* 플립 시 앞면을 흐름에서 제거 → 뒷면 콘텐츠 높이로 카드 크기 결정 */
+.card-container.is-flipped .card-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .card-front,
 .card-back {
   grid-area: card;
