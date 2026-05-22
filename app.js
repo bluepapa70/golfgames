@@ -16,6 +16,7 @@ function makeStars(count, max = 5) {
 function buildCard(game) {
   const container = document.createElement('div');
   container.className = 'card-container';
+  container.style.setProperty('--card-color', game.color);
   container.setAttribute('tabindex', '0');
   container.setAttribute('role', 'button');
   container.setAttribute('aria-label', `${game.name} 게임 카드 — 클릭하면 룰 확인`);
@@ -25,34 +26,32 @@ function buildCard(game) {
     ? `<div class="card-tip"><span class="card-tip-label">💡 고수 팁</span>${game.tip}</div>`
     : '';
 
-  const rulesHtml = game.description
-    .map(r => `<li>${r}</li>`)
-    .join('');
-
-  const tagsHtml = game.tags
-    .map(t => `<span class="tag">${t}</span>`)
-    .join('');
+  const rulesHtml = game.description.map(r => `<li>${r}</li>`).join('');
+  const tagsHtml = game.tags.map(t => `<span class="tag">${t}</span>`).join('');
 
   container.innerHTML = `
     <div class="card-inner">
       <div class="card-front">
-        <div class="card-front-emoji">${game.emoji}</div>
-        <div class="card-front-name">${game.name}</div>
-        <div class="card-front-name-en">${game.nameEn}</div>
-        <hr class="card-divider">
-        <div class="card-stars-row">
-          <span>인기도</span>
-          <span class="stars" aria-label="인기도 ${game.popularity}점">${makeStars(game.popularity)}</span>
+        <div class="card-header">
+          <div class="card-front-emoji">${game.emoji}</div>
+          <div class="card-front-name">${game.name}</div>
+          <div class="card-front-name-en">${game.nameEn}</div>
         </div>
-        <div class="card-stars-row">
-          <span>난이도</span>
-          <span class="stars" aria-label="난이도 ${game.difficulty}점">${makeStars(game.difficulty)}</span>
+        <div class="card-body">
+          <div class="card-stars-row">
+            <span>인기도</span>
+            <span class="stars" aria-label="인기도 ${game.popularity}점">${makeStars(game.popularity)}</span>
+          </div>
+          <div class="card-stars-row">
+            <span>난이도</span>
+            <span class="stars" aria-label="난이도 ${game.difficulty}점">${makeStars(game.difficulty)}</span>
+          </div>
+          <hr class="card-divider">
+          <p class="card-summary">${game.summary}</p>
+          <p class="card-target"><strong>추천 대상</strong> ${game.target}</p>
+          <div class="card-tags">${tagsHtml}</div>
+          <button class="card-flip-btn" tabindex="-1" aria-hidden="true">룰 보기 →</button>
         </div>
-        <hr class="card-divider">
-        <p class="card-summary">${game.summary}</p>
-        <p class="card-target"><strong>추천 대상</strong> ${game.target}</p>
-        <div class="card-tags">${tagsHtml}</div>
-        <button class="card-flip-btn" tabindex="-1" aria-hidden="true">룰 보기 →</button>
       </div>
       <div class="card-back" aria-hidden="true">
         <div class="card-back-title">📖 플레이 방법</div>

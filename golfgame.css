@@ -3,21 +3,20 @@
 /* ── 변수 ── */
 :root {
   --color-primary: #1a5c2a;
-  --color-primary-dark: #134420;
-  --color-accent: #f5a623;
-  --color-bg: #f4f7f4;
+  --color-bg: #f0f4f1;
   --color-card-front: #ffffff;
-  --color-card-back: #1a5c2a;
   --color-text: #1a1a1a;
-  --color-text-muted: #666;
+  --color-text-muted: #777;
   --color-text-on-dark: #ffffff;
+  --color-accent: #f5a623;
   --color-star-filled: #f5a623;
   --color-star-empty: #ddd;
-  --radius-card: 16px;
-  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.12);
-  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --radius-card: 18px;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.10);
+  --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.18);
   --transition-flip: 0.6s ease;
-  --card-min-height: 360px;
+  --card-min-height: 380px;
+  --card-color: #1a5c2a;
 }
 
 /* ── 리셋 & 기본 ── */
@@ -50,17 +49,17 @@ body {
 .site-header {
   background: var(--color-primary);
   color: var(--color-text-on-dark);
-  padding: 28px 16px;
+  padding: 32px 16px;
   text-align: center;
 }
 
 .header-inner {
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .site-title {
-  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-size: clamp(1.2rem, 4vw, 1.9rem);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -68,14 +67,14 @@ body {
 .site-subtitle {
   margin-top: 6px;
   font-size: clamp(0.85rem, 2.5vw, 1rem);
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 /* ── 컨트롤 바 ── */
 .controls {
-  max-width: 960px;
-  margin: 24px auto 0;
-  padding: 0 16px;
+  max-width: 1000px;
+  margin: 28px auto 0;
+  padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -90,7 +89,7 @@ body {
 }
 
 .filter-btn {
-  padding: 8px 16px;
+  padding: 8px 18px;
   border: 2px solid var(--color-primary);
   border-radius: 999px;
   background: transparent;
@@ -108,7 +107,7 @@ body {
 }
 
 .sort-group select {
-  padding: 8px 12px;
+  padding: 8px 14px;
   border: 2px solid var(--color-primary);
   border-radius: 8px;
   background: #fff;
@@ -120,35 +119,38 @@ body {
 }
 
 .sort-group select:focus {
-  box-shadow: 0 0 0 3px rgba(26, 92, 42, 0.25);
+  box-shadow: 0 0 0 3px rgba(26, 92, 42, 0.2);
 }
 
 /* ── 카드 그리드 ── */
 .card-grid {
-  max-width: 960px;
-  margin: 24px auto 40px;
-  padding: 0 16px;
+  max-width: 1000px;
+  margin: 28px auto 48px;
+  padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 28px;
 }
 
 @media (min-width: 481px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 
 @media (min-width: 769px) {
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
   }
 }
 
 @media (min-width: 1201px) {
   .card-grid {
-    max-width: 1280px;
+    max-width: 1320px;
     grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
   }
 }
 
@@ -160,7 +162,7 @@ body {
 }
 
 .card-container:focus {
-  outline: 3px solid var(--color-accent);
+  outline: 3px solid var(--card-color);
   outline-offset: 4px;
   border-radius: var(--radius-card);
 }
@@ -189,9 +191,9 @@ body {
   min-height: var(--card-min-height);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
-  padding: 20px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .card-container:hover .card-front,
@@ -204,35 +206,51 @@ body {
   background: var(--color-card-front);
 }
 
+/* 컬러 헤더 밴드 */
+.card-header {
+  background: var(--card-color);
+  padding: 20px 20px 16px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
 .card-front-emoji {
-  font-size: 2.2rem;
+  font-size: 2rem;
   line-height: 1;
   margin-bottom: 8px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
 }
 
 .card-front-name {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 2px;
+  letter-spacing: -0.01em;
 }
 
 .card-front-name-en {
   font-size: 0.78rem;
-  color: var(--color-text-muted);
-  margin-bottom: 12px;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+/* 카드 본문 */
+.card-body {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .card-divider {
   border: none;
-  border-top: 1px solid #e8e8e8;
-  margin: 8px 0;
+  border-top: 1px solid #efefef;
+  margin: 10px 0;
 }
 
 .card-stars-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 0.8rem;
   color: var(--color-text-muted);
   margin-bottom: 4px;
@@ -240,7 +258,12 @@ body {
 
 .stars {
   letter-spacing: 1px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+  color: var(--color-star-filled);
+}
+
+.stars .empty {
+  color: var(--color-star-empty);
 }
 
 .card-summary {
@@ -248,6 +271,7 @@ body {
   color: var(--color-text);
   margin: 10px 0 8px;
   flex: 1;
+  line-height: 1.55;
 }
 
 .card-target {
@@ -257,7 +281,7 @@ body {
 }
 
 .card-target strong {
-  color: var(--color-primary);
+  color: var(--card-color);
 }
 
 .card-tags {
@@ -271,43 +295,43 @@ body {
   font-size: 0.72rem;
   padding: 3px 10px;
   border-radius: 999px;
-  background: #e8f5ec;
-  color: var(--color-primary);
+  background: color-mix(in srgb, var(--card-color) 12%, white);
+  color: var(--card-color);
   font-weight: 600;
 }
 
 .card-flip-btn {
   margin-top: auto;
-  padding: 9px 0;
-  background: var(--color-primary);
+  padding: 10px 0;
+  background: var(--card-color);
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   pointer-events: none;
-  transition: background 0.2s;
+  transition: opacity 0.2s;
+  text-align: center;
 }
 
 .card-container:hover .card-flip-btn {
-  background: var(--color-primary-dark);
+  opacity: 0.88;
 }
 
 /* ── 카드 뒷면 ── */
 .card-back {
-  background: var(--color-card-back);
+  background: var(--card-color);
   color: var(--color-text-on-dark);
   transform: rotateY(180deg);
+  padding: 22px 20px 20px;
 }
 
 .card-back-title {
   font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin-bottom: 14px;
+  opacity: 0.95;
 }
 
 .card-rules {
@@ -315,16 +339,17 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 9px;
+  margin-bottom: 14px;
+  counter-reset: rule-counter;
 }
 
 .card-rules li {
   font-size: 0.825rem;
   line-height: 1.55;
-  padding-left: 20px;
+  padding-left: 22px;
   position: relative;
-  opacity: 0.92;
+  opacity: 0.9;
 }
 
 .card-rules li::before {
@@ -336,19 +361,14 @@ body {
   color: var(--color-accent);
 }
 
-.card-rules {
-  counter-reset: rule-counter;
-}
-
 .card-tip {
   font-size: 0.8rem;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   border-left: 3px solid var(--color-accent);
   padding: 8px 10px;
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 8px 8px 0;
   margin-bottom: 14px;
   line-height: 1.5;
-  opacity: 0.95;
 }
 
 .card-tip-label {
@@ -361,20 +381,21 @@ body {
 
 .card-back-btn {
   margin-top: auto;
-  padding: 9px 0;
-  background: rgba(255, 255, 255, 0.15);
+  padding: 10px 0;
+  background: rgba(255, 255, 255, 0.18);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   pointer-events: none;
   transition: background 0.2s;
+  text-align: center;
 }
 
 .card-container:hover .card-back-btn {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.28);
 }
 
 /* ── 빈 상태 ── */
@@ -390,9 +411,9 @@ body {
 .site-footer {
   margin-top: auto;
   background: var(--color-primary);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.75);
   text-align: center;
-  padding: 20px 16px;
+  padding: 22px 16px;
   font-size: 0.825rem;
   line-height: 2;
 }
